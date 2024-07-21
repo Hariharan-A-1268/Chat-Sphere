@@ -57,7 +57,7 @@ const SideDrawer = () => {
       try {
         setLoading(true);
         const { data } = await axios({
-          url: `http://localhost:5000/api/user?search=${search}`,
+          url: `/api/user?search=${search}`,
           method: "get",
           headers: {
             Authorization: `Bearer ${user.token}`,
@@ -84,7 +84,7 @@ const SideDrawer = () => {
     try {
       setloadingChat(true);
       const { data } = await axios({
-        url: `http://localhost:5000/api/chat`,
+        url: `/api/chat`,
         method: "post",
         headers: {
           Authorization: `Bearer ${user.token}`,

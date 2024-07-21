@@ -52,7 +52,7 @@ const GroupChatModel = ({ children }) => {
     try {
       setLoading(true);
       const { data } = await axios({
-        url: `http://localhost:5000/api/user?search=${search}`,
+        url: `/api/user?search=${search}`,
         method: "get",
         headers: {
           Authorization: `Bearer ${user.token}`,
@@ -85,7 +85,7 @@ const GroupChatModel = ({ children }) => {
     }
     try {
       const { data } = await axios({
-        url: `http://localhost:5000/api/chat/group`,
+        url: `/api/chat/group`,
         method: "post",
         headers: {
           Authorization: `Bearer ${user.token}`,

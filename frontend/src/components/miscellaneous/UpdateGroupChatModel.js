@@ -50,7 +50,7 @@ const UpdateGroupChatModel = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
     try {
       setLoading(true);
       const { data } = await axios({
-        url: `http://localhost:5000/api/chat/groupremove`,
+        url: `/api/chat/groupremove`,
         method: "put",
         headers: {
           Authorization: `Bearer ${user.token}`,
@@ -86,7 +86,7 @@ const UpdateGroupChatModel = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
     try {
       setRenameLoading(true);
       const { data } = await axios({
-        url: `http://localhost:5000/api/chat/renamegroup`,
+        url: `/api/chat/renamegroup`,
         method: "put",
         headers: {
           Authorization: `Bearer ${user.token}`,
@@ -124,7 +124,7 @@ const UpdateGroupChatModel = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
     try {
       setLoading(true);
       const { data } = await axios({
-        url: `http://localhost:5000/api/user?search=${search}`,
+        url: `/api/user?search=${search}`,
         method: "get",
         headers: {
           Authorization: `Bearer ${user.token}`,
@@ -171,7 +171,7 @@ const UpdateGroupChatModel = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
     try {
       setLoading(true);
       const { data } = await axios({
-        url: `http://localhost:5000/api/chat/groupadd`,
+        url: `/api/chat/groupadd`,
         method: "put",
         headers: {
           Authorization: `Bearer ${user.token}`,

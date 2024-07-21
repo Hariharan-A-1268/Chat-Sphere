@@ -48,7 +48,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
     setLoading(true);
     try {
       const { data } = await axios({
-        url: `http://localhost:5000/api/messages/${SelectChat._id}`,
+        url: `/api/messages/${SelectChat._id}`,
         method: "get",
         headers: {
           Authorization: `Bearer ${user.token}`,
@@ -65,7 +65,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
         title: "Error Occured!",
         description: "Failed to Load the Messages",
         status: "error",
-        duration: 5000,
+        duration: 2000,
         isClosable: true,
         position: "bottom",
       });
@@ -109,7 +109,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
       try {
         setNewMessage("");
         const { data } = await axios({
-          url: `http://localhost:5000/api/messages`,
+          url: `/api/messages`,
           method: "post",
           headers: {
             Authorization: `Bearer ${user.token}`,
