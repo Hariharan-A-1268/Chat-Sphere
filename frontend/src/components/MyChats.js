@@ -90,7 +90,7 @@ const MyChats = ({ fetchAgain }) => {
               <Box
                 onClick={() => setSelectedChat(chat)}
                 cursor="pointer"
-                background={SelectChat === chat ? "#535C67" : "#E8E8E8"}
+                background={SelectChat === chat ? "#38A169" : "#E8E8E8"}
                 color={SelectChat === chat ? "white" : "black"}
                 px={3}
                 py={2}
@@ -102,6 +102,14 @@ const MyChats = ({ fetchAgain }) => {
                     ? getSender(loggedUser, chat.users)
                     : chat.chatName}
                 </Text>
+                {chat.latestMessage && (
+                  <Text fontSize="xs">
+                    <b>{chat.latestMessage.sender.name} : </b>
+                    {chat.latestMessage.content.length > 50
+                      ? chat.latestMessage.content.substring(0, 51) + "..."
+                      : chat.latestMessage.content}
+                  </Text>
+                )}
               </Box>
             ))}
           </Stack>

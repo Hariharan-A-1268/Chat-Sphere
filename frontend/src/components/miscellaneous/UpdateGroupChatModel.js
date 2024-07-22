@@ -4,7 +4,6 @@ import {
   FormControl,
   IconButton,
   Input,
-  Spinner,
   useDisclosure,
   useToast,
 } from "@chakra-ui/react";
@@ -27,7 +26,6 @@ import axios from "axios";
 const UpdateGroupChatModel = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [groupChatName, setGroupChatName] = useState();
-  const [search, setSearch] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   const [loading, setLoading] = useState(false);
   const [renameLoading, setRenameLoading] = useState(false);
@@ -117,14 +115,13 @@ const UpdateGroupChatModel = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
     setGroupChatName("");
   };
   const handleSearch = async (query) => {
-    setSearch(query);
     if (!query) {
       return;
     }
     try {
       setLoading(true);
       const { data } = await axios({
-        url: `/api/user?search=${search}`,
+        url: `/api/user?search=${query}`,
         method: "get",
         headers: {
           Authorization: `Bearer ${user.token}`,
@@ -239,7 +236,7 @@ const UpdateGroupChatModel = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
               />
               <Button
                 variant="solid"
-                colorScheme="gray"
+                colorScheme="green"
                 ml={1}
                 isLoading={renameLoading}
                 onClick={handleRename}
@@ -256,7 +253,7 @@ const UpdateGroupChatModel = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
             </FormControl>
 
             {loading ? (
-              <Spinner size="lg" />
+              <div>Loading...</div>
             ) : (
               searchResult?.map((user) => (
                 <UserListItem

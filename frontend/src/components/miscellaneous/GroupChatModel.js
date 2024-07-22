@@ -17,14 +17,12 @@ import React, { useState } from "react";
 import { ChatState } from "../../context/chatProvider";
 import axios from "axios";
 import UserListItem from "../UserAvatar/UserListItem";
-import { Spinner } from "@chakra-ui/react";
 import UserBadgeItem from "../UserAvatar/UserBadgeItem";
 
 const GroupChatModel = ({ children }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [groupChatName, setGroupChatName] = useState();
   const [selectedUsers, setSelectedUsers] = useState([]);
-  const [search, setSearch] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -45,14 +43,13 @@ const GroupChatModel = ({ children }) => {
     setSelectedUsers([...selectedUsers, userToAdd]);
   };
   const handleSearch = async (query) => {
-    setSearch(query);
     if (!query) {
       return;
     }
     try {
       setLoading(true);
       const { data } = await axios({
-        url: `/api/user?search=${search}`,
+        url: `/api/user?search=${query}`,
         method: "get",
         headers: {
           Authorization: `Bearer ${user.token}`,
@@ -149,7 +146,7 @@ const GroupChatModel = ({ children }) => {
             </FormControl>
             <FormControl>
               <Input
-                placeholder="Add Users eg: John, Carter, Shajjaad"
+                placeholder="Add Users"
                 mb={1}
                 onChange={(e) => handleSearch(e.target.value)}
               />
@@ -164,7 +161,7 @@ const GroupChatModel = ({ children }) => {
               ))}
             </Box>
             {loading ? (
-              <Spinner />
+              <div>Loading...</div>
             ) : (
               searchResult
                 ?.slice(0, 4)
@@ -179,7 +176,7 @@ const GroupChatModel = ({ children }) => {
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={handleSubmit}>
+            <Button colorScheme="green" mr={3} onClick={handleSubmit}>
               Create Group
             </Button>
           </ModalFooter>
