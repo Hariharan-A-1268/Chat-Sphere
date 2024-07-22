@@ -1,6 +1,6 @@
 # Chat-Sphere
 
-This React project is a MERN (MongoDB, Express.js, React, Node.js) stack project designed to create a user-friendly chatting app which uses real time communication and have both one-on-one and group chatting functionalities. This project stores user data in encrypted format in Mongo DB Database. 
+This React project is a MERN (MongoDB, Express.js, React, Node.js) stack project designed to create a user-friendly chatting app which uses real time communication and have both one to one and group chatting functionalities. This project stores user data in encrypted format in Mongo DB Database. 
 
 <br>
 
@@ -29,6 +29,12 @@ This React project is a MERN (MongoDB, Express.js, React, Node.js) stack project
 ### Home Page
 
 ![Screenshot 2024-07-22 183506](https://github.com/user-attachments/assets/d1d3aeb9-b237-46b8-9a10-8c87a136e889)
+
+<br>
+
+### One to One Chat
+
+![image](https://github.com/user-attachments/assets/70c9001d-aaa4-4c60-8c2a-15710a98d023)
 
 <br>
 
