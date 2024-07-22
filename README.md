@@ -38,6 +38,12 @@ This React project is a MERN (MongoDB, Express.js, React, Node.js) stack project
 
 <br>
 
+### Real Time Chatting with Typing indicators
+
+![image](https://github.com/user-attachments/assets/44cc21b8-6422-4db4-81de-48b55d8dcffa)
+
+<br>
+
 ### Group Chat
 
 ![Screenshot 2024-07-22 183912](https://github.com/user-attachments/assets/08705b09-cacd-4402-9613-37ec1d889460)
